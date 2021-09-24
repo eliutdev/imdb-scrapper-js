@@ -1,26 +1,33 @@
 {
-    "name": "imdb-scrapper-js",
-    "version": "0.0.1",
-    "description": "",
-    "type": "module",
-     "exports": {
-       "import": "./lib/esm/index.js",
-       "require": "./lib/cjs/index.js"
-     },
-    "scripts": {
-       "build": "esbuild ./src/index.js --minify",
-       "build:esm": "npm run build -- --format=esm --platform=node --outdir=lib/esm",
-       "build:cjs": "npm run build -- --format=cjs --platform=node --outdir=lib/cjs"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "cheerio": "^1.0.0-rc.10",
-        "request": "^2.88.2",
-        "request-promise": "^4.2.6"
-    },
-    "devDependencies": {
-        "esbuild": "^0.13.2"
-    }
+  "name": "imdb-scrapper-js",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "./lib/cjs/index.cjs",
+  "exports": {
+    "import": "./lib/esm/index.mjs",
+    "require": "./lib/cjs/index.cjs"
+  },
+  "scripts": {
+    "build": "esbuild ./src/index.js --minify",
+    "build:esm": "npm run build -- --format=esm --platform=node --outfile=lib/esm/index.mjs",
+    "build:cjs": "npm run build -- --format=cjs --platform=node --outfile=lib/cjs/index.cjs",
+    "clean": "rimraf lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.2",
+    "rimraf": "^3.0.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
