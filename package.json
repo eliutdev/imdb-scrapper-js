@@ -3,9 +3,14 @@
     "version": "0.0.1",
     "description": "",
     "type": "module",
-    "main": "./lib/index.js",
+     "exports": {
+       "import": "./lib/esm/index.js",
+       "require": "./lib/cjs/index.js"
+     },
     "scripts": {
-        "build": "esbuild ./src/index.js --outdir=lib --format=esm --platform=node --minify"
+       "build": "esbuild ./src/index.js --minify",
+       "build:esm": "npm run build -- --format=esm --platform=node --outdir=lib/esm",
+       "build:cjs": "npm run build -- --format=cjs --platform=node --outdir=lib/cjs"
     },
     "keywords": [],
     "author": "",
